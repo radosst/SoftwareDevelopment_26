@@ -53,6 +53,17 @@ namespace StudentRegistration
 
             }
             Console.WriteLine($"Такса: {payment}");
+
+            //zad.5
+            Console.Write("Въведете има ли стипендия:");
+            bool scholarship;
+            while (!bool.TryParse(Console.ReadLine(), out scholarship))
+            {
+                Console.WriteLine("Невалидена стипендия.");
+                Console.Write("Въведете има лои стипендия:");
+
+            }
+            Console.WriteLine($"Стипендия: {scholarship}");
         }        
     }
 }
