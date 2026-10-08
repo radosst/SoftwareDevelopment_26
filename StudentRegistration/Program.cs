@@ -59,11 +59,22 @@ namespace StudentRegistration
             bool scholarship;
             while (!bool.TryParse(Console.ReadLine(), out scholarship))
             {
-                Console.WriteLine("Невалидена стипендия.");
-                Console.Write("Въведете има лои стипендия:");
+                Console.WriteLine("Няма стипендия.");
+                Console.Write("Въведете има ли стипендия:");
 
             }
             Console.WriteLine($"Стипендия: {scholarship}");
+
+            //zad.6
+            Console.Write("Въведете паралелка:");
+            char major;
+            while (!char.TryParse(Console.ReadLine(), out major))
+            {
+                Console.WriteLine("Невалидена паралелка.");
+                Console.Write("Въведете паралелка:");
+
+            }
+            Console.WriteLine($"Паралелка: {major}");
         }        
     }
 }
