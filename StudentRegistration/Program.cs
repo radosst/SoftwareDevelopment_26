@@ -12,36 +12,36 @@ namespace StudentRegistration
         {
             //зад.1
             Console.Write("Въведете възраст:");
-            if (int.TryParse(Console.ReadLine(), out int age))
-            {
-                Console.WriteLine($"Възраст: {age}");
-            }
-            else
+            int age;
+            while (!int.TryParse(Console.ReadLine(), out  age))
             {
                 Console.WriteLine("Невалидна възраст.");
+                Console.Write("Въведете възраст:");
             }
+            Console.WriteLine($"Възраст: {age}");
+
 
             //zad.2
             Console.Write("Въведете клас:");
-            if (byte.TryParse(Console.ReadLine(), out byte grade))
-            {
-               Console.WriteLine($"Клас: {grade}");
-            }
-            else
+            byte grade;
+            while (!byte.TryParse(Console.ReadLine(), out  grade))
             {
                 Console.WriteLine("Невалиден клас.");
+                Console.Write("Въведете клас:");
             }
+            Console.WriteLine($"Клас: {grade}");
+
 
             //zad.3
             Console.Write("Въведете среден успех:");
-            if (double.TryParse(Console.ReadLine(), out double averegegrade))
-            {
-                Console.WriteLine($"Среден успех: {averegegrade}");
-            }
-            else
+            double averegegrade;
+            while (!double.TryParse(Console.ReadLine(), out  averegegrade))
             {
                 Console.WriteLine("Невалиден успех.");
+                Console.Write("Въведете среден успех:");
+
             }
+            Console.WriteLine($"Среден успех: {averegegrade}");
         }        
     }
 }
