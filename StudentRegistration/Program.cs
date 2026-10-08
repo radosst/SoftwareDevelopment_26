@@ -68,13 +68,24 @@ namespace StudentRegistration
             //zad.6
             Console.Write("Въведете паралелка:");
             char major;
-            while (!char.TryParse(Console.ReadLine(), out major))
+            if (!char.TryParse(Console.ReadLine(), out major))
             {
-                Console.WriteLine("Невалидена паралелка.");
-                Console.Write("Въведете паралелка:");
+               
+                Console.WriteLine($"Паралелка: {major}");
 
             }
-            Console.WriteLine($"Паралелка: {major}");
+            Console.WriteLine("Невалидена паралелка.");
+            
+            //zad.7
+            Console.Write("Въведете дата на раждане:");
+            DateTime birthDate = DateTime.Parse(Console.ReadLine());
+            while (!DateTime.TryParse(Console.ReadLine(), out birthDate))
+            {
+                Console.WriteLine("Невалидена дата на раждане.");
+                Console.Write("Въведете дата на раждане:");
+
+            }
+            Console.WriteLine($"Дата на раждане: {birthDate:d}");
         }        
     }
 }
