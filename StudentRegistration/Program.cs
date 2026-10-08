@@ -42,6 +42,17 @@ namespace StudentRegistration
 
             }
             Console.WriteLine($"Среден успех: {averegegrade}");
+
+            //zad.4
+            Console.Write("Въведете такса:");
+            decimal payment;
+            while (!decimal.TryParse(Console.ReadLine(), out payment))
+            {
+                Console.WriteLine("Невалидена такса.");
+                Console.Write("Въведете такса:");
+
+            }
+            Console.WriteLine($"Такса: {payment}");
         }        
     }
 }
