@@ -11,14 +11,26 @@ namespace StudentRegistration
         static void Main(string[] args)
         {
             //зад.1
-            Console.WriteLine("Въведете възраст:");
-            while (int.TryParse(Console.ReadLine(), out int age))
+            Console.Write("Въведете възраст:");
+            if (int.TryParse(Console.ReadLine(), out int age))
             {
                 Console.WriteLine($"Възраст: {age}");
             }
-             Console.WriteLine("Невалидна възраст."); 
+            else
+            {
+                Console.WriteLine("Невалидна възраст.");
+            }
 
-            
-        }
+            //zad.2
+            Console.Write("Въведете клас:");
+            if (byte.TryParse(Console.ReadLine(), out byte grade))
+            {
+               Console.WriteLine($"Клас: {grade}");
+            }
+            else
+            {
+                Console.WriteLine("Невалиден клас.");
+            }
+        }        
     }
 }
