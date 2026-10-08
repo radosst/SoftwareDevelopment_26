@@ -31,6 +31,17 @@ namespace StudentRegistration
             {
                 Console.WriteLine("Невалиден клас.");
             }
+
+            //zad.3
+            Console.Write("Въведете среден успех:");
+            if (double.TryParse(Console.ReadLine(), out double averegegrade))
+            {
+                Console.WriteLine($"Среден успех: {averegegrade}");
+            }
+            else
+            {
+                Console.WriteLine("Невалиден успех.");
+            }
         }        
     }
 }
