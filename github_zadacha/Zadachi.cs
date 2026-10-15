@@ -16,7 +16,16 @@ namespace github_zadacha
         public string Sustoqnie { get; set; }
 
         public Zadachi(int id ,string title,string desc,string dl,string state)
-        {
+        {   
+            if (id<=0)
+            {
+                throw new ArgumentException("ID трябва да е положително!");
+            }
+            if(string.IsNullOrEmpty(title))
+            {
+                throw new ArgumentException("Заглавието е задължително!");
+            }
+
             ID = id;
             Zaglavie = title;
             Opisanie = desc;

@@ -109,7 +109,7 @@ namespace github_zadacha
 
                 SaveZadachiToFile();
                 Console.WriteLine("Задачата е добавена!");
-                }
+            }
 
             static void CheckZadachi()
             {
@@ -161,7 +161,7 @@ namespace github_zadacha
                         zadachi.RemoveAt(index);
                         Console.WriteLine("Задачата е изтрита.");
                     }
-                }
+                }              
             }
 
         }
