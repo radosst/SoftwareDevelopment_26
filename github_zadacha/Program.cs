@@ -5,9 +5,11 @@ using System.Runtime.Intrinsics.Arm;
 namespace github_zadacha
 {
     internal class Program
+
     {
         static string filePath = "zad.txt";
         static List<Zadachi> zadachi = new List<Zadachi>();
+        private static int nextID = 1;
         static void Main(string[] args)
         {
             LoadZadachiFromFile();
@@ -71,7 +73,7 @@ namespace github_zadacha
                         string state = parts[3];
 
 
-                        Zadachi z = new Zadachi(title, desc, dl, state);
+                        Zadachi z = new Zadachi(nextID, title, desc, dl, state);
                         zadachi.Add(z);
                     }
                 }
@@ -101,7 +103,8 @@ namespace github_zadacha
                 Console.WriteLine("Въведи дали новата задача е изпълнена:");
                 string state = Console.ReadLine();
 
-                Zadachi newZad = new Zadachi(title, desc, dl, state);
+                Zadachi newZad = new Zadachi(nextID, title, desc, dl, state);
+             
                 zadachi.Add(newZad);
 
                 SaveZadachiToFile();

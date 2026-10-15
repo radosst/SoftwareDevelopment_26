@@ -9,13 +9,15 @@ namespace github_zadacha
 {
     internal class Zadachi
     {
+        public int ID {  get; set; }
         public string Zaglavie { get; set; }
         public string Opisanie { get; set; }
         public string KraenSrok { get; set; }
         public string Sustoqnie { get; set; }
 
-        public Zadachi(string title,string desc,string dl,string state)
+        public Zadachi(int id ,string title,string desc,string dl,string state)
         {
+            ID = id;
             Zaglavie = title;
             Opisanie = desc;
             KraenSrok = dl;
