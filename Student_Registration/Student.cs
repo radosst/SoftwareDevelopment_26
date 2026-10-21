@@ -73,7 +73,19 @@ namespace Student_Registration
 
         public bool HasScholarship { get; set; }
 
+        private char classLetter;
+        public char ClassLetter
+        {
+            get => classLetter;
+            set
+            {
+                if (!char.IsLetter(value))
+                    throw new ArgumentException("Паралелката трябва да е буква.");
+                classLetter = value;
+            }
+        }
 
+       
     }    
 }
 
