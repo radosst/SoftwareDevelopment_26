@@ -47,6 +47,18 @@ namespace Student_Registration
             }
         }
 
+        private double averageScore;
+        public double AverageScore
+        {
+            get => averageScore;
+            set
+            {
+                if (value < 2.00 || value > 6.00)
+                    throw new ArgumentOutOfRangeException("Средният успех трябва да бъде между 2.00 и 6.00 включително.");
+                averageScore = value;
+            }
+        }
+
     }    
 }
 
