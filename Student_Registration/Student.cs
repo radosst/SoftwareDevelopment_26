@@ -18,7 +18,7 @@ namespace Student_Registration
             set
             {
                 if (value == null || value == "")
-                    throw new ArgumentException("Името не може да бъде празно или само интервали.");
+                    throw new ArgumentException("Името не може да бъде празно или само интервали.", nameof(Name));
                 name = value;
             }
         }
@@ -30,7 +30,7 @@ namespace Student_Registration
             set
             {
                 if (value < 6 || value > 20)
-                    throw new ArgumentOutOfRangeException("Възрастта трябва да бъде между 6 и 20 години.");
+                    throw new ArgumentOutOfRangeException(nameof(Age), "Възрастта трябва да бъде между 6 и 20 години.");
                 age = value;
             }
         }
@@ -42,7 +42,7 @@ namespace Student_Registration
             set
             {
                 if (value < 1 || value > 12)
-                    throw new ArgumentOutOfRangeException("Класът трябва да бъде между 1 и 12 включително.");
+                    throw new ArgumentOutOfRangeException(nameof(Grade), "Класът трябва да бъде между 1 и 12 включително.");
                 grade = value;
             }
         }
@@ -54,7 +54,7 @@ namespace Student_Registration
             set
             {
                 if (value < 2.00 || value > 6.00)
-                    throw new ArgumentOutOfRangeException("Средният успех трябва да бъде между 2.00 и 6.00 включително.");
+                    throw new ArgumentOutOfRangeException(nameof(AverageScore), "Средният успех трябва да бъде между 2.00 и 6.00 включително.");
                 averageScore = value;
             }
         }
@@ -66,7 +66,7 @@ namespace Student_Registration
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException("Таксата не може да бъде отрицателна.");
+                    throw new ArgumentOutOfRangeException(nameof(Fee), "Таксата не може да бъде отрицателна.");
                 fee = value;
             }
         }
@@ -80,7 +80,7 @@ namespace Student_Registration
             set
             {
                 if (!char.IsLetter(value))
-                    throw new ArgumentException("Паралелката трябва да е буква.");
+                    throw new ArgumentException("Паралелката трябва да е буква.", nameof(ClassLetter));
                 classLetter = value;
             }
         }
@@ -92,7 +92,7 @@ namespace Student_Registration
             set
             {
                 if (value > DateTime.Now)
-                    throw new ArgumentOutOfRangeException("Датата на раждане не може да е бъдеща дата.");
+                    throw new ArgumentOutOfRangeException(nameof(BirthDate), "Датата на раждане не може да е бъдеща дата.");
                 birthDate = value;
             }
         }
