@@ -59,6 +59,18 @@ namespace Student_Registration
             }
         }
 
+        private decimal fee;
+        public decimal Fee
+        {
+            get => fee;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("Таксата не може да бъде отрицателна.");
+                fee = value;
+            }
+        }
+
     }    
 }
 
