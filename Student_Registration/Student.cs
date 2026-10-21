@@ -23,7 +23,19 @@ namespace Student_Registration
             }
         }
 
-        
+        private int age;
+        public int Age
+        {
+            get => age;
+            set
+            {
+                if (value < 6 || value > 20)
+                    throw new ArgumentOutOfRangeException("Възрастта трябва да бъде между 6 и 20 години.");
+                age = value;
+            }
+        }
+
+
     }    
 }
 
