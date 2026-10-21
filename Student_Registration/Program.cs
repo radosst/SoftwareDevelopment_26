@@ -104,6 +104,16 @@
                     Console.WriteLine("Моля въведете една буква.");
                 }
             }
+
+            static DateTime ReadDate(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    if (DateTime.TryParse(Console.ReadLine(), out DateTime result)) return result;
+                    Console.WriteLine("Невалидна дата. Въведете във формат dd.MM.yyyy.");
+                }
+            }
         }
     
     }
