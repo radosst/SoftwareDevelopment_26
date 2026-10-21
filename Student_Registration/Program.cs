@@ -92,6 +92,18 @@
                     Console.WriteLine("Моля въведете true или false.");
                 }
             }
+
+            static char ReadChar(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    string input = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(input) && input.Length == 1 && char.IsLetter(input[0]))
+                        return input[0];
+                    Console.WriteLine("Моля въведете една буква.");
+                }
+            }
         }
     
     }
