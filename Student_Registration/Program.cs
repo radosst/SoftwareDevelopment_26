@@ -52,6 +52,16 @@
                     }
                 }
             }
+
+            static int ReadInt(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    if (int.TryParse(Console.ReadLine(), out int result)) return result;
+                    Console.WriteLine("Невалидно цяло число. Въведете отново.");
+                }
+            }
         }
     
     }
