@@ -96,6 +96,19 @@ namespace Student_Registration
                 birthDate = value;
             }
         }
+
+        public Student(string name, int age, int grade, double averageScore, decimal fee, bool hasScholarship, char classLetter, DateTime birthDate)
+        {
+            Id = nextId++;
+            Name = name;
+            Age = age;
+            Grade = grade;
+            AverageScore = averageScore;
+            Fee = fee;
+            HasScholarship = hasScholarship;
+            ClassLetter = classLetter;
+            BirthDate = birthDate;
+        }
     }    
 }
 

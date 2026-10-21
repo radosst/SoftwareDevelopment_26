@@ -14,6 +14,27 @@
             bool scholarship = ReadBool("Получава ли стипендия (true/false): ");
             char classLetter = ReadChar("Паралелка (буква): ");
             DateTime birthDate = ReadDate("Дата на раждане (dd.MM.yyyy): ");
+
+            try
+            {
+                Student student = new Student(name, age, grade, avgScore, fee, scholarship, classLetter, birthDate);
+
+                Console.WriteLine("\n--- ДАННИ ЗА УЧЕНИК ---");
+                Console.WriteLine($"Id: {student.Id}");
+                Console.WriteLine($"Име: {student.Name}");
+                Console.WriteLine($"Възраст: {student.Age}");
+                Console.WriteLine($"Клас: {student.Grade}");
+                Console.WriteLine($"Среден успех: {student.AverageScore:F2}");
+                Console.WriteLine($"Такса: {student.Fee:F2} лв.");
+                Console.WriteLine($"Стипендия: {(student.HasScholarship ? "Да" : "Не")}");
+                Console.WriteLine($"Паралелка: {student.ClassLetter}");
+                Console.WriteLine($"Дата на раждане: {student.BirthDate:dd.MM.yyyy}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Грешка: {ex.Message}");
+            }
         }
+    }
     }
 }
