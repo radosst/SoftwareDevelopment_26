@@ -72,6 +72,16 @@
                     Console.WriteLine("Невалидно число. Въведете отново.");
                 }
             }
+
+            static decimal ReadDecimal(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    if (decimal.TryParse(Console.ReadLine(), out decimal result)) return result;
+                    Console.WriteLine("Невалидна сума. Въведете отново.");
+                }
+            }
         }
     
     }
