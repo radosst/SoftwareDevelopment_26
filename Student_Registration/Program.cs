@@ -82,6 +82,16 @@
                     Console.WriteLine("Невалидна сума. Въведете отново.");
                 }
             }
+
+            static bool ReadBool(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    if (bool.TryParse(Console.ReadLine(), out bool result)) return result;
+                    Console.WriteLine("Моля въведете true или false.");
+                }
+            }
         }
     
     }
