@@ -62,6 +62,16 @@
                     Console.WriteLine("Невалидно цяло число. Въведете отново.");
                 }
             }
+
+            static double ReadDouble(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    if (double.TryParse(Console.ReadLine(), out double result)) return result;
+                    Console.WriteLine("Невалидно число. Въведете отново.");
+                }
+            }
         }
     
     }
