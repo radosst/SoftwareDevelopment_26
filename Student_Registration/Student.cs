@@ -85,7 +85,17 @@ namespace Student_Registration
             }
         }
 
-       
+        private DateTime birthDate;
+        public DateTime BirthDate
+        {
+            get => birthDate;
+            set
+            {
+                if (value > DateTime.Now)
+                    throw new ArgumentOutOfRangeException("Датата на раждане не може да е бъдеща дата.");
+                birthDate = value;
+            }
+        }
     }    
 }
 
