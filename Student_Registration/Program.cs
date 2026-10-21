@@ -34,7 +34,25 @@
             {
                 Console.WriteLine($"Грешка: {ex.Message}");
             }
+
+            static string ReadString(string prompt)
+            {
+                while (true)
+                {
+                    Console.Write(prompt);
+                    string input = Console.ReadLine();
+                    try
+                    {
+                        if (string.IsNullOrWhiteSpace(input)) throw new ArgumentException("Името не може да е празно.");
+                        return input;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
         }
-    }
+    
     }
 }
