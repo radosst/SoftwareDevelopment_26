@@ -35,6 +35,17 @@ namespace Student_Registration
             }
         }
 
+        private int grade;
+        public int Grade
+        {
+            get => grade;
+            set
+            {
+                if (value < 1 || value > 12)
+                    throw new ArgumentOutOfRangeException("Класът трябва да бъде между 1 и 12 включително.");
+                grade = value;
+            }
+        }
 
     }    
 }
