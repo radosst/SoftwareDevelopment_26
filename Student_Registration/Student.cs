@@ -11,6 +11,19 @@ namespace Student_Registration
         private static int nextId = 1;
         public int Id { get; private set; }
 
+        private string name;
+        public string Name
+        {
+            get => name;
+            set
+            {
+                if (value == null || value == "")
+                    throw new ArgumentException("Името не може да бъде празно или само интервали.");
+                name = value;
+            }
+        }
+
+        
     }    
 }
 
