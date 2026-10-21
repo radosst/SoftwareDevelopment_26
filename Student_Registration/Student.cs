@@ -71,6 +71,9 @@ namespace Student_Registration
             }
         }
 
+        public bool HasScholarship { get; set; }
+
+
     }    
 }
 
