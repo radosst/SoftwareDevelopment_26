@@ -8,5 +8,9 @@ namespace Student_Registration
 {
     internal class Student
     {
-    }
+        private static int nextId = 1;
+        public int Id { get; private set; }
+
+    }    
 }
+
