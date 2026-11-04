@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace TodoManager
         private string title;
         private DateTime dueDate;
         private bool isCompleted;
+        private int nextId;
+        private DataSetDateTime dueDate1;
+
 
         public int Id { get; private set; }
         public string Title
@@ -66,6 +70,14 @@ namespace TodoManager
             DueDate = dueDate;
             IsCompleted = false;
 
+        }
+
+        public TodoItem(int nextId, string title, string description, DataSetDateTime dueDate1)
+        {
+            this.nextId = nextId;
+            this.title = title;
+            Description = description;
+            this.dueDate1 = dueDate1;
         }
 
         public void Completed()

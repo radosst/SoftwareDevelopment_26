@@ -39,16 +39,30 @@ namespace TodoManager
             return targetTodo;
         }
 
-        public void Completed (int id)
+        public void Completed(int id)
         {
             TodoItem todo = FindById(id);
 
             if (todo == null)
             {
-                throw new ArgumentException
+                throw new ArgumentException("Няма задача с такова ID");
+
+                todo.Completed();
             }
+        }
+
+        public void Delete(int id)
+        {
+            TodoItem todo = FindById(id);
+
+            if (todo == null)
+                throw new ArgumentException("Няма задача с такова ID");
+
+            todos.Remove(todo);
 
         }
 
     }
+
+    
 }
