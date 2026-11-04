@@ -6,7 +6,7 @@ namespace TodoManager
 {
     internal class Program
     {
-
+        static TodoService service = new TodoService();
 
         static void Main(string[] args)
         {
@@ -68,9 +68,7 @@ namespace TodoManager
                 Console.Write("Избери Id: ");
             }
 
-            TodoItem deleteTask = FindById(id);
-
-            tasks.Remove(deleteTask);
+            service.Delete(id);
             Console.WriteLine("Задачата е изтрита.");
 
         }
@@ -89,9 +87,9 @@ namespace TodoManager
                 Console.WriteLine("Невалидно id.");
                 Console.Write("Избери Id: ");
             }
-
+            
+            service.Delete(id);
             Console.WriteLine("Задачата е завършена.");
-
 
         }
 
@@ -101,13 +99,15 @@ namespace TodoManager
             Console.WriteLine();
             Console.WriteLine("===== Всички задачи  =======");
 
-            if (tasks.Count == 0)
+            var todos = service.GetAll();
+
+            if (todos.Count == 0)
             {
                 Console.WriteLine("Няма въведени задачи");
             }
             else
             {
-                foreach (TodoItem todoItem in tasks)
+                foreach (TodoItem todoItem in todos)
                 {
                     Console.WriteLine($"{todoItem}");
                 }
@@ -120,7 +120,7 @@ namespace TodoManager
         {
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("=====  Добавяне на задача =======");
+            Console.WriteLine("=====  Добавяне на задача =====");
 
             Console.Write("Заглавие:");
             string title = Console.ReadLine();
@@ -130,15 +130,14 @@ namespace TodoManager
 
             Console.Write("Краен срок:");
             DateTime dueDate;
+           
             while (!DateTime.TryParse(Console.ReadLine(), out dueDate))
             {
                 Console.WriteLine("Невалидна дата.Въведи отово!");
                 Console.Write("Краен срок: ");
             }
 
-            TodoItem todoItem = new TodoItem(nextId, title, description, dueDate);
-            tasks.Add(todoItem);
-            nextId++;
+            service.Add(title, description, dueDate);
             Console.WriteLine("Задачата е добавена.");
 
 

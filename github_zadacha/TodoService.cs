@@ -10,7 +10,7 @@ namespace TodoManager
     internal class TodoService
     {
         private readonly List<TodoItem> todos = new List<TodoItem>();
-        private int nextID = 1;
+        private static int nextId = 1;
 
         public List<TodoItem> GetAll()
         { 
