@@ -11,5 +11,6 @@ namespace github_zadacha
     {
         public List<TodoItem> Todos {  get; set; }
         public int NextId { get; set; } = 1;
+       
     }
 }
