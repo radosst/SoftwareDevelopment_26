@@ -1,4 +1,5 @@
-﻿using System;
+﻿using github_zadacha;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,24 +10,28 @@ namespace TodoManager
 {
     internal class TodoService
     {
-        private readonly List<TodoItem> todos = new List<TodoItem>();
-        private static int nextId = 1;
+        private readonly TodoStorage storage;
 
-        public List<TodoItem> GetAll()
+        public TodoService(TodoStorage storage)
+        {
+            this.storage = storage;
+        }
+
+        public IReadOnlyList<TodoItem> GetAll()
         { 
-           return todos;
+           return storage.Todos;
         }
 
         public void Add(string title,string description,DateTime dueDate)
         {
-            TodoItem todoItem = new TodoItem(nextId, title, description, dueDate);
-            todos.Add(todoItem);
-            nextId++;
+            TodoItem todoItem = new TodoItem(storage.NextId, title, description, dueDate);
+            storage.Todos.Add(todoItem);
+            storage.NextId++;
         }
 
         public TodoItem FindById(int id)
         {
-            foreach (TodoItem todo in todos)
+            foreach (TodoItem todo in storage.Todos)
             {
                 if (todo.Id == id)
                 {
@@ -56,7 +61,7 @@ namespace TodoManager
             {
                 throw new ArgumentException("Няма задача с такова ID");
             }
-            todos.Remove(todo);
+            storage.Todos.Remove(todo);
 
         }
 
