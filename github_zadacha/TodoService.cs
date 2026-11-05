@@ -10,7 +10,7 @@ namespace TodoManager
     internal class TodoService
     {
         private readonly List<TodoItem> todos = new List<TodoItem>();
-        private int nextID = 1;
+        private static int nextId = 1;
 
         public List<TodoItem> GetAll()
         { 
@@ -20,35 +20,46 @@ namespace TodoManager
         public void Add(string title,string description,DateTime dueDate)
         {
             TodoItem todoItem = new TodoItem(nextId, title, description, dueDate);
-            todo.Add(todoItem);
+            todos.Add(todoItem);
             nextId++;
         }
 
         public TodoItem FindById(int id)
         {
-            TodoItem targetTodo = null; 
-            foreach (TodoItem todoItem in todos)
+            foreach (TodoItem todo in todos)
             {
-                if (todoItem.Id == id)
+                if (todo.Id == id)
                 {
-                    return todoItem;
+                    return todo;
                 }
-
             }
 
-            return targetTodo;
+            return null;
         }
 
-        public void Completed (int id)
+        public void Complete(int id)
         {
             TodoItem todo = FindById(id);
 
             if (todo == null)
-            {
-                throw new ArgumentException
-            }
+             throw new ArgumentException("Няма задача с такова ID");
+
+            todo.Completed();
+            
+        }
+
+        public void Delete(int id)
+        {
+            TodoItem todo = FindById(id);
+
+            if (todo == null)
+                throw new ArgumentException("Няма задача с такова ID");
+
+            todos.Remove(todo);
 
         }
 
     }
+
+    
 }
