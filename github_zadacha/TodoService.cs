@@ -53,8 +53,9 @@ namespace TodoManager
             TodoItem todo = FindById(id);
 
             if (todo == null)
+            {
                 throw new ArgumentException("Няма задача с такова ID");
-
+            }
             todos.Remove(todo);
 
         }

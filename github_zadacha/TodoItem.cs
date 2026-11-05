@@ -16,7 +16,6 @@ namespace TodoManager
         private int nextId;
         private DataSetDateTime dueDate1;
 
-
         public int Id { get; private set; }
         public string Title
         {
