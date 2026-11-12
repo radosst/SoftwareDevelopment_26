@@ -2,9 +2,9 @@ using github_zadacha;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Runtime.Intrinsics.Arm;
-using TodoManager;
 
-namespace TodoManager
+
+namespace github_zadacha
 {
     internal class Program
     {

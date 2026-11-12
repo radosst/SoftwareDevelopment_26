@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TodoManager
+namespace github_zadacha
 {
     internal class TodoItem
     {
