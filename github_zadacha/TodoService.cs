@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace github_zadacha
 {
+    //UI
     internal class TodoService
     {
         private readonly TodoStorage storage;
-
-        public TodoService(TodoStorage storage)
+        private readonly FileStorage fileStorage;
+        public TodoService(FileStorage file)
         {
-            this.storage = storage;
+            fileStorage = file;
+            this.storage=fileStorage.Load();
         }
 
         public IReadOnlyList<TodoItem> GetAll()
@@ -27,6 +29,8 @@ namespace github_zadacha
             TodoItem todoItem = new TodoItem(storage.NextId, title, description, dueDate);
             storage.Todos.Add(todoItem);
             storage.NextId++;
+
+            fileStorage.Save(storage);
         }
 
         public TodoItem FindById(int id)
@@ -50,6 +54,8 @@ namespace github_zadacha
              throw new ArgumentException("Няма задача с такова ID");
 
             todo.Completed();
+
+            fileStorage.Save(storage);
             
         }
 
@@ -62,6 +68,8 @@ namespace github_zadacha
                 throw new ArgumentException("Няма задача с такова ID");
             }
             storage.Todos.Remove(todo);
+
+            fileStorage.Save(storage);
 
         }
 
