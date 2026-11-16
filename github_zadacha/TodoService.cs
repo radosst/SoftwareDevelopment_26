@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace github_zadacha
 {
-    //UI
+    
     internal class TodoService
     {
         private readonly TodoStorage storage;

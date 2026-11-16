@@ -8,6 +8,8 @@ namespace github_zadacha
 {
     internal class Program
     {
+        //UI
+
         //static TodoStorage storage = new TodoStorage();
 
         static void Main(string[] args)
