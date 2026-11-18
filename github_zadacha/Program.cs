@@ -2,6 +2,7 @@ using github_zadacha;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Runtime.Intrinsics.Arm;
+using System.Text;
 
 
 namespace github_zadacha
@@ -14,7 +15,10 @@ namespace github_zadacha
 
         static void Main(string[] args)
         {
-           FileStorage fileStorage = new FileStorage("todos.json");
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
+
+            FileStorage fileStorage = new FileStorage("todos.json");
            TodoService service = new TodoService(fileStorage);
 
 
